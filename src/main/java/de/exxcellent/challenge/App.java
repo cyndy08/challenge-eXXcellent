@@ -26,6 +26,7 @@ public final class App {
 
         // Read the weather.csv file and get the list of weather days
     	List<Data> list1 = ReaderFromFileCSV.readDataFromFile(SYSTEMPATH + args[0]);
+    	// Read the football.csv file and get the list of Teams 
     	List<Data> list2 = ReaderFromFileCSV.readDataFromFile(SYSTEMPATH + args[1]);
     	
     	// Find the day with the smallest temperature spread and store his number in the variable dayWithSmallestTempSpread

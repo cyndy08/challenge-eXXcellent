@@ -3,8 +3,9 @@ package dataModel;
 import java.util.List;
 
 /**
- * The class WeatherDay describes how is the weather at a particular day. Each instance of this class has a number,
- * a maximal temperature and a minimal temperature. This class is used to process the data from the weather.csv file.
+ * The class WeatherDay implements the interface Data and describes how is the weather at a particular day. 
+ * Each instance of this class has a number, a maximal temperature and a minimal temperature. 
+ * This class is used to process the data from the weather.csv file.
  * For each entry in this file a new object of the class WeatherDay will be created with the required attributes.
  * 
  * @author Marina Tedayem

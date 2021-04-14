@@ -2,6 +2,13 @@ package dataModel;
 
 import java.util.List;
 
+/**
+ * This class implements the interface Data and describes a team in the football.csv file. Each team has a name, a number a goals
+ * scored by them and a number of goals scored against them. Other attributes from the file are not required to solve this challenge
+ * and therefore will not be processed. For each entry in the football.csv file an object of the class Team will be created.
+ * @author Marina Tedayem
+ *
+ */
 public class Team implements Data{
 	private String teamName;
 	private int goals;
@@ -38,6 +45,13 @@ public class Team implements Data{
 		this.goalsAllowed = newAllowed;
 	}
 	
+	/**
+	 * This method works similarly to the function findSmallestSpread() in the class WeatherDay. It looks for the team with the smallest
+	 * absolute difference between the goals scored by the team and the goals scored against the team. It receives a list of teams
+	 * as parameters and returns the name of the team with the smallest spread.
+	 * @param listofteams
+	 * @return
+	 */
 	public static String findSmallestSpread(List<Data> listofteams) {
 		//Get the first team of the list
 		Team t = (Team) listofteams.get(0);
@@ -65,6 +79,14 @@ public class Team implements Data{
 		return minTeam;
 		
 	}
+	
+	/**
+	 * This method computes the absolute difference of two given integers. Because we do not want the difference to be negative,
+	 * the given integers are compared before the calculation. 
+	 * @param a
+	 * @param b
+	 * @return absolute difference between a and b.
+	 */
 	public static int diff(int a, int b) {
 		if (a < b) {
 			return b - a;
