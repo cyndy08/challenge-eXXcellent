@@ -1,3 +1,4 @@
+dataModel\Data.class
 dataAccess\ReaderFromFile.class
 dataAccess\ReaderFromFileCSV.class
 de\exxcellent\challenge\App.class

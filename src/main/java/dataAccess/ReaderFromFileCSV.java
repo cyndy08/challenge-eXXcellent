@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import dataModel.Data;
 import dataModel.Team;
 import dataModel.WeatherDay;
 
@@ -26,8 +27,8 @@ public class ReaderFromFileCSV {
 	 * @param filename
 	 * @return List of created WeatherDay
 	 */
-	public static List<WeatherDay> readDataFromFile (String filename) {
-		List<WeatherDay> list = new ArrayList<>();
+	public static List<Data> readDataFromFile (String filename) {
+		List<Data> list = new ArrayList<>();
 		try (BufferedReader buffer = new BufferedReader(new FileReader(filename))){
 			//Read the first line of the file and skip it
 			buffer.readLine();
@@ -37,10 +38,20 @@ public class ReaderFromFileCSV {
 				//Get all the attributes of a particular day from the file
 				List<String> attributes = Arrays.asList(line.split(DELIMITER));
 				WeatherDay d = null;
-				//Create a new Object of the class WeatherDay with these attributes
-				d = createDay(attributes);
-				//Add this new Day to the list
-				list.add(d);
+				Team t = null;
+				if (filename.contains("weather")) {
+					//Create a new Object of the class WeatherDay with these attributes
+					d = createDay(attributes);
+					//Add this new Day to the list
+					list.add(d);
+				}
+				else if (filename.contains("football")) {
+					//Create a new Object of the class Team with these attributes
+					t = createTeam(attributes);
+					//Add this new Day to the list
+					list.add(t);
+				}
+				
 			}
 			
 		} catch (FileNotFoundException e) {
@@ -57,8 +68,8 @@ public class ReaderFromFileCSV {
 	 */
 	public static Team createTeam(List<String> list) {
 		String name = list.get(0);
-		int goals = Integer.parseInt(list.get(1));
-		int goalsAllowed = Integer.parseInt(list.get(2));
+		int goals = Integer.parseInt(list.get(5));
+		int goalsAllowed = Integer.parseInt(list.get(6));
 		
 		return new Team (name, goals, goalsAllowed);
 	}
@@ -74,4 +85,11 @@ public class ReaderFromFileCSV {
 		
 		return new WeatherDay (number, maxTemp, minTemp);
 	}
+	public static int findPositionColumn(String filename, String columname) {
+		int position = 0;
+		
+		return position;
+	}
+	
+	
 }

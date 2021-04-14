@@ -6,5 +6,7 @@ import dataModel.WeatherDay;
 
 public interface ReaderFromFile {
 	
-	public List<WeatherDay> readDataFromFile (String filename);
+	public static List<WeatherDay> readDataFromFile (String filename) {
+		return null;
+	}
 }

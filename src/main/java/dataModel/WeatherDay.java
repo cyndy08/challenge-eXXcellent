@@ -10,7 +10,7 @@ import java.util.List;
  * @author Marina Tedayem
  *
  */
-public class WeatherDay{
+public class WeatherDay implements Data{
 	private String dayNumber;
 	private double maxTemperature;
 	private double minTemperature;
@@ -57,9 +57,9 @@ public class WeatherDay{
  	 * @param listofdays
 	 * @return String minDay: number of the day with the smallest spread
 	 */
-	public static String findMinimumSpread(List<WeatherDay> listofdays) {
+	public static String findSmallestSpread(List<Data> listofdays) {
 		//Get the first day of the list
-		WeatherDay d = listofdays.get(0);
+		WeatherDay d = (WeatherDay) listofdays.get(0);
 		//Get his minimal temperature
 		double mintemp = d.getMinTemperature();
 		//Get his maximal temperature
@@ -70,7 +70,7 @@ public class WeatherDay{
 		String minDay = d.getNumber();
 		//Process all days in the list to find the one with the smallest spread
 		for (int i = 1; i < listofdays.size(); i++) {
-			d = listofdays.get(i);
+			d = (WeatherDay) listofdays.get(i);
 			mintemp = d.getMinTemperature();
 			maxtemp = d.getMaxTemperature();
 			double temp = maxtemp - mintemp;

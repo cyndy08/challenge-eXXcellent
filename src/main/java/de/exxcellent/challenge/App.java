@@ -3,6 +3,8 @@ package de.exxcellent.challenge;
 import java.util.List;
 
 import dataAccess.ReaderFromFileCSV;
+import dataModel.Data;
+import dataModel.Team;
 import dataModel.WeatherDay;
 
 /**
@@ -23,14 +25,17 @@ public final class App {
     public static void main(String... args) {
 
         // Read the weather.csv file and get the list of weather days
-    	List<WeatherDay> list1 = ReaderFromFileCSV.readDataFromFile(SYSTEMPATH + args[0]);
+    	List<Data> list1 = ReaderFromFileCSV.readDataFromFile(SYSTEMPATH + args[0]);
+    	List<Data> list2 = ReaderFromFileCSV.readDataFromFile(SYSTEMPATH + args[1]);
     	
-    	// Find the day with the smallest spread and store his number in the variable dayWithSmallestTempSpread
-        String dayWithSmallestTempSpread = WeatherDay.findMinimumSpread(list1);
+    	// Find the day with the smallest temperature spread and store his number in the variable dayWithSmallestTempSpread
+        String dayWithSmallestTempSpread = WeatherDay.findSmallestSpread(list1);
        // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
-
-        String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
+        
+        //Find the team with the smallest goal spread and store his name in the variable teamWithSmallestGoalSpread
+        String teamWithSmallestGoalSpread = Team.findSmallestSpread(list2); 
+        // Your goal analysis function call …
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
         
     }
