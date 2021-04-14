@@ -1,0 +1,5 @@
+dataAccess\ReaderFromFile.class
+dataAccess\ReaderFromFileCSV.class
+de\exxcellent\challenge\App.class
+dataModel\Team.class
+dataModel\WeatherDay.class
