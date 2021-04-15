@@ -2,11 +2,9 @@ package dataAccess;
 
 import java.util.List;
 
-import dataModel.WeatherDay;
+import dataModel.Data;
 
 public interface ReaderFromFile {
 	
-	public static List<WeatherDay> readDataFromFile (String filename) {
-		return null;
-	}
+	public List<Data> readDataFromFile (String filename);
 }

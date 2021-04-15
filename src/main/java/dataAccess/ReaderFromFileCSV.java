@@ -31,6 +31,10 @@ public class ReaderFromFileCSV implements ReaderFromFile {
 	final static String COLUMN_GOALS = "Goals";
 	final static String COLUMN_GOALS_ALLOWED = "Goals Allowed";
 	
+	//constructor
+	public ReaderFromFileCSV(){
+		
+	}
 	/**
 	 * The following method reads the passed csv.file and returns a list of objects of the interface Data.
 	 * If the actual file is the weather.csv file then objects of the class WeatherDay are created with the values
@@ -41,7 +45,7 @@ public class ReaderFromFileCSV implements ReaderFromFile {
 	 * @param filename
 	 * @return List of created Data
 	 */
-	public static List<Data> readDataFromFile (String filename) {
+	public List<Data> readDataFromFile (String filename) {
 		List<Data> list = new ArrayList<>();
 		try (BufferedReader buffer = new BufferedReader(new FileReader(filename))){
 			//Read the first line of the file and skip it
@@ -84,7 +88,7 @@ public class ReaderFromFileCSV implements ReaderFromFile {
 	 * @param filename
 	 * @return new object of the class Team
 	 */
-	public static Team createTeam(List<String> list, String filename) {
+	public Team createTeam(List<String> list, String filename) {
 		String name = list.get(findPositionColumn(filename, COLUMN_TEAM));
 		int goals = Integer.parseInt(list.get(findPositionColumn(filename, COLUMN_GOALS)));
 		int goalsAllowed = Integer.parseInt(list.get(findPositionColumn(filename, COLUMN_GOALS_ALLOWED)));
@@ -100,7 +104,7 @@ public class ReaderFromFileCSV implements ReaderFromFile {
 	 * @param filename
 	 * @return new object the class WeatherDay
 	 */
-	public static WeatherDay createDay(List<String> list, String filename) {
+	public  WeatherDay createDay(List<String> list, String filename) {
 		String number = list.get(findPositionColumn(filename, COLUMN_DAY));
 		double maxTemp = Double.parseDouble(list.get(findPositionColumn(filename, COLUMN_MAX)));
 		double minTemp = Double.parseDouble(list.get(findPositionColumn(filename, COLUMN_MIN)));
@@ -118,7 +122,7 @@ public class ReaderFromFileCSV implements ReaderFromFile {
 	 * @param columname
 	 * @return position of a column in a file
 	 */
-	public static int findPositionColumn(String filename, String columname) {
+	public int findPositionColumn(String filename, String columname) {
 		int position = -1;
 		try (BufferedReader buffer = new BufferedReader(new FileReader(filename))){
 			//Read only the first line and save the output in a list of string.

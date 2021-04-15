@@ -23,6 +23,10 @@ public class WeatherDay implements Data{
 		this.minTemperature = minTemp;
 	}
 	
+	public WeatherDay () {
+		
+	}
+	
 	//Getter and Setter for the attributes because they are private and can not be accessed from another class
 	public String getNumber() {
 		return dayNumber;
@@ -58,7 +62,7 @@ public class WeatherDay implements Data{
  	 * @param listofdays
 	 * @return String minDay: number of the day with the smallest spread
 	 */
-	public static String findSmallestSpread(List<Data> listofdays) {
+	public String findSmallestSpread(List<Data> listofdays) {
 		//Get the first day of the list
 		WeatherDay d = (WeatherDay) listofdays.get(0);
 		//Get his minimal temperature

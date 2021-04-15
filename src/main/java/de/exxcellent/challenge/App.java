@@ -23,19 +23,22 @@ public final class App {
 	final static String SYSTEMPATH = ".\\src\\main\\resources\\de\\exxcellent\\challenge\\";
 	
     public static void main(String... args) {
-
+    	
+    	ReaderFromFileCSV reader = new ReaderFromFileCSV();
         // Read the weather.csv file and get the list of weather days
-    	List<Data> list1 = ReaderFromFileCSV.readDataFromFile(SYSTEMPATH + args[0]);
+    	List<Data> list1 = reader.readDataFromFile(SYSTEMPATH + args[0]);
     	// Read the football.csv file and get the list of Teams 
-    	List<Data> list2 = ReaderFromFileCSV.readDataFromFile(SYSTEMPATH + args[1]);
+    	List<Data> list2 = reader.readDataFromFile(SYSTEMPATH + args[1]);
     	
     	// Find the day with the smallest temperature spread and store his number in the variable dayWithSmallestTempSpread
-        String dayWithSmallestTempSpread = WeatherDay.findSmallestSpread(list1);
+    	WeatherDay d = new WeatherDay();
+        String dayWithSmallestTempSpread = d.findSmallestSpread(list1);
        // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
         
         //Find the team with the smallest goal spread and store his name in the variable teamWithSmallestGoalSpread
-        String teamWithSmallestGoalSpread = Team.findSmallestSpread(list2); 
+        Team t = new Team();
+        String teamWithSmallestGoalSpread = t.findSmallestSpread(list2); 
         // Your goal analysis function call …
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
         

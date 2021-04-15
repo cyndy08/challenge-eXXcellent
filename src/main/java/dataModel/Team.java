@@ -20,6 +20,9 @@ public class Team implements Data{
 		this.goalsAllowed = allowed;
 	}
 	
+	public Team() {
+		
+	}
 	//Getter and Setter
 	public String getName() {
 		return teamName;
@@ -52,7 +55,7 @@ public class Team implements Data{
 	 * @param listofteams
 	 * @return
 	 */
-	public static String findSmallestSpread(List<Data> listofteams) {
+	public String findSmallestSpread(List<Data> listofteams) {
 		//Get the first team of the list
 		Team t = (Team) listofteams.get(0);
 		//Get his number of goals scored
